@@ -25,9 +25,7 @@ export default {
     async createContact(contact){
       await contactService.createContact(contact);
       this.$router.push('contacts');
-
     }
   }
-  
 };
 </script>

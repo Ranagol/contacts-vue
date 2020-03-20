@@ -6,7 +6,7 @@
           <ContactList :contacts="contacts" />
         </div>
         <div class="col-8">
-          <ContactDetails :contact="routeContact" />
+          <ContactDetails @deleteContact="deleteContact" :contact="routeContact" />
         </div>
       </div>
       <div class="row mt-3">
@@ -41,10 +41,16 @@ export default {
     }
   },
   methods: {
-    addContact(contact) {
-      console.log(contact); // eslint-disable-line
-      this.contacts.push(contact);
+    async addContact(contact) {
+      console.log(contact);
+      await this.contacts.push(contact);
+    },
+    async deleteContact(id){
+      await contactService.deleteContact(id);//deleting from db
+      let index = this.contacts.findIndex(contact => contact.id === id);
+      this.contacts.splice(index, 1);//deleting from this.contacts array, in order to refresh the page
     }
+    
   },
   async created(){
     this.contacts = await contactService.getAll();
