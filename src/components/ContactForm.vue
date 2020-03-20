@@ -1,5 +1,6 @@
 <template>
   <form @submit.prevent="onSubmit">
+    <p>ContactForm.vue</p>
     <div class="form-group row">
       <label for="first_name" class="col-4 col-form-label">First Name</label>
       <div class="col-8">
@@ -43,21 +44,7 @@
         />
       </div>
     </div>
-    <div class="form-group row">
-      <label for="number" class="col-4 col-form-label">Number</label>
-      <div class="col-8">
-        <div class="input-group">
-          <input
-            id="number"
-            name="number"
-            type="tel"
-            required="required"
-            class="form-control here"
-            v-model="contact.number"
-          />
-        </div>
-      </div>
-    </div>
+    
     <div class="form-group row">
       <div class="offset-4 col-8">
         <button name="submit" type="submit" class="btn btn-primary">Submit</button>
@@ -81,13 +68,13 @@ export default {
         first_name: '',
         last_name: '',
         email: '',
-        number: ''
       })
     }
   },
   methods: {
     onSubmit() {
       this.$emit('onSubmit', this.draftContact);
+      //console.log(this.draftContact);
     }
   }
 };

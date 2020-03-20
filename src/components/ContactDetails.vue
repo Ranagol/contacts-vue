@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="card">
+      <p>ContactDetails.vue</p>
       <ul class="list-group list-group-flush" v-if="contact">
         <li class="list-group-item">
           <i class="fas fa-user fa-fw"></i> {{ contact.first_name }} {{ contact.last_name }}

@@ -1,5 +1,6 @@
 <template>
   <div class="list-group">
+    <P>ContactList.vue</P>
     <router-link
       class="list-group-item list-group-item-action"
       tag="button"
